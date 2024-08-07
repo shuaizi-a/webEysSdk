@@ -1,0 +1,23 @@
+// 最大内容渲染时间。
+export default function observerLCP() {
+  const entryHandler = list => {
+    if (observer) {
+      observer.disconnect();
+    }
+    for (const entry of list.getEntries()) {
+      const json = entry.toJSON();
+      const reportData = {
+        ...json,
+        type: 'performance',
+        subType: entry.name,
+        pageUrl: window.location.href
+      };
+      // 发送数据 todo;
+      console.log('lcp', reportData);
+    }
+  };
+  // 统计和计算lcp的时间
+  const observer = new PerformanceObserver(entryHandler);
+  // buffered: true 确保观察到所有paint事件
+  observer.observe({ type: 'largest-contentful-paint', buffered: true });
+}
