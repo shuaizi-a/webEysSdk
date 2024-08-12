@@ -1,4 +1,6 @@
-// 表示渲染出第一个内容，这里的“内容”可以是文本、图片、canvas。
+/**
+ * 表示渲染出第一个内容，这里的“内容”可以是文本、图片、canvas。
+ */
 export default function observerFCP() {
   const entryHandler = list => {
     for (const entry of list.getEntries()) {

@@ -1,4 +1,6 @@
-// 最大内容渲染时间。
+/**
+ * 最大内容渲染时间
+ */
 export default function observerLCP() {
   const entryHandler = list => {
     if (observer) {
