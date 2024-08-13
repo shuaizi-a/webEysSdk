@@ -1,3 +1,4 @@
+import { lazyReportBatch } from '../report';
 const originalFetch = window.fetch;
 function overwriteFetch() {
   window.fetch = function newFetch(url, config) {
@@ -18,7 +19,7 @@ function overwriteFetch() {
         reportData.status = data.status;
         reportData.success = data.ok;
         // todo 上报数据
-        console.log(reportData);
+        lazyReportBatch(reportData);
         return res;
       })
       .catch(err => {
@@ -28,7 +29,7 @@ function overwriteFetch() {
         reportData.status = 0;
         reportData.success = false;
         // todo 上报数据
-        console.log(reportData);
+        lazyReportBatch(reportData);
       });
   };
 }

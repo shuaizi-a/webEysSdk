@@ -1,3 +1,5 @@
+import { lazyReportBatch } from '../report';
+
 /**
  * 页面加载完成时间
  */
@@ -12,7 +14,7 @@ export default function observerLoad() {
           startTime: performance.now() - event.timeStamp
         };
         // todo
-        console.log(reportData);
+        lazyReportBatch(reportData);
       });
     }, true);
   });

@@ -1,3 +1,4 @@
+import { lazyReportBatch } from '../report';
 /**
  * 页面静态资源加载时间统计
  */
@@ -37,7 +38,7 @@ export function observerEvent() {
         startTime: performance.now()
       };
       // todo
-      console.log(reportData);
+      lazyReportBatch(reportData);
     }
   };
 

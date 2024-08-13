@@ -1,3 +1,5 @@
+import { lazyReportBatch } from '../report';
+
 /**
  * 最大内容渲染时间
  */
@@ -15,7 +17,7 @@ export default function observerLCP() {
         pageUrl: window.location.href
       };
       // 发送数据 todo;
-      console.log('lcp', reportData);
+      lazyReportBatch(reportData);
     }
   };
   // 统计和计算lcp的时间

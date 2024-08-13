@@ -1,3 +1,5 @@
+import { lazyReportBatch } from '../report';
+
 /**
  * 表示渲染出第一个内容，这里的“内容”可以是文本、图片、canvas。
  */
@@ -15,6 +17,7 @@ export default function observerFCP() {
         };
         // 发送数据 todo;
         console.log('fcp', reportData);
+        lazyReportBatch(reportData);
       }
     }
   };

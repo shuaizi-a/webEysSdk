@@ -1,3 +1,4 @@
+import { lazyReportBatch } from '../report';
 export default function error() {
   // 捕获资源加载失败的错误： js css  img
   window.addEventListener(
@@ -15,7 +16,7 @@ export default function error() {
           paths: e.path
         };
         // todo 发送错误信息
-        console.log(reportData);
+        lazyReportBatch(reportData);
       }
     },
     true
@@ -34,7 +35,7 @@ export default function error() {
       startTime: performance.now()
     };
     // todo 发送错误信息
-    console.log(reportData);
+    lazyReportBatch(reportData);
   };
   // 捕获promise错误  async await
   window.addEventListener(
@@ -48,7 +49,7 @@ export default function error() {
         startTime: e.timeStamp
       };
       // todo 发送错误信息
-      console.log(reportData);
+      lazyReportBatch(reportData);
     },
     true
   );
