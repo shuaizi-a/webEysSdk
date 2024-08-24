@@ -16,6 +16,7 @@ export function install(Vue, options) {
   const handler = Vue.config.errorHandler;
   // vue项目中 通过 Vue.config.errorHandler 捕获错误
   Vue.config.errorHandler = function (err, vm, info) {
+    console.log('err', err);
     // todo: 上报具体的错误信息
     const reportData = {
       info,
@@ -47,7 +48,14 @@ export function errorBoundary(err, info) {
   lazyReportBatch(reportData);
 }
 export function init(options) {
+  // 配置项
   setConfig(options);
+  // 性能统计
+  performance();
+  // 错误处理
+  error();
+  // 点击事件
+  behavior();
 }
 
 export default {

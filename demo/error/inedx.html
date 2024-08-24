@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>error</title>
     <script src="../../dist/monitor.js"></script>
-    <!-- <link rel="stylesheet" href="./assets/index-46867abb.css">
+    <!-- <link rel="stylesheet" href="./assets/index-46867abb.css" />
     <script src="http://wwwabc.com/dist/a.js"></script> -->
     <script>
       monitor.init({
@@ -18,7 +18,9 @@
     <img src="http://toutiao.com/x.png" alt="" />
     <img src="http://toutiao.com/x2.png" alt="" />
     <img src="http://toutiao.com/x3.png" alt="" />
+
     <script>
+      console.log(monitor);
       function test() {
         return Promise.reject(Error('promise'));
       }
@@ -28,8 +30,8 @@
       test();
       test1();
       throw Error('test');
-      // let abc = 2;
-      // abc();
+      let abc = 2;
+      abc();
     </script>
   </body>
 </html>
